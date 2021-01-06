@@ -10,12 +10,6 @@ import React, { useEffect, useState } from "react";
 
 import djangoLogo from './django.png';
 
-const code3 = `Hi! I'm an Express server.
-
-I'm running on port 3001.
-I've been pinged 6 times.
-Last pinged on 1/5/21 at 3:00:01PM.`
-
 function ConnectCard(props) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,15 +40,13 @@ function ConnectCard(props) {
   }
   return (
     <Card className={props.classes.card}>
-      <h2>Connect to any server</h2>
-      <p>You can connect this React frontend to a number of different backend frameworks.</p>
-      <p>Some popular backend frameworks are:</p>
+      <h2>Connect to a server</h2>
+      <p>This React frontend is connected to a Django backend. Below is the response from our server.</p>
       <Box display="flex" flexDirection="column" alignItems="center">
         <Box mb="5px" onClick={fetchData}><img width="100px" src={djangoLogo} /></Box>
       </Box>
-      <p>Click on any of the frameworks above to make a request to that server, and see the response below.</p>
-    { data.response ? <ResponseBlock response={data.response} /> : ""}
-  
+      { data.response ? <ResponseBlock response={data.response} /> : ""}
+      <p>Change the code at `code.js`, save the file, then refresh this page to see a new message.</p>
     </Card>
   );
 }
