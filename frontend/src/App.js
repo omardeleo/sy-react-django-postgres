@@ -41,8 +41,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     [theme.breakpoints.down('sm')]: {
       flexDirection: "column",
+      textAlign: "center"
     },
-  }
+  },
 }));
 
 function App() {
