@@ -2,16 +2,16 @@ import { Card, Link } from '@material-ui/core';
 
 function ThemeCard(props) {
   const codeBlock_1 =`65 |  const theme = createMuiTheme({ 
-  66 |    palette: {
-  67 |      type: 'dark',
-  68 |    }
-  69 |  });`
+66 |    palette: {
+67 |      type: 'dark',
+68 |    }
+69 |  });`
 
   const codeBlock_2 =`65 |  const theme = createMuiTheme({ 
-  66 |    palette: {
-  67 |      type: 'light',
-  68 |    }
-  69 |  });`
+66 |    palette: {
+67 |      type: 'light',
+68 |    }
+69 |  });`
 
   return (
     <Card className={props.classes.card}>
