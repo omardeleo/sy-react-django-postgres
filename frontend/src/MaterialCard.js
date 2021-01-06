@@ -25,5 +25,3 @@ function MaterialCard(props) {
 }
 
 export default MaterialCard;
-
-        
