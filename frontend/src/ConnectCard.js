@@ -20,7 +20,6 @@ function ConnectCard(props) {
       .then(res => res.json())
       .then(
         (result) => {
-          console.log('hiya', result);
           setIsLoaded(true);
           setData(result);
         },
@@ -40,7 +39,7 @@ function ConnectCard(props) {
   }
   return (
     <Card className={props.classes.card}>
-      <h2>Connect to a server</h2>
+      <h2 className={props.classes.cardHeader}>Connect to a server</h2>
       <p>This React frontend is connected to a Django backend. Below is the response from our server.</p>
       <Box display="flex" flexDirection="column" alignItems="center">
         <Box mb="5px" onClick={fetchData}><img width="100px" src={djangoLogo} /></Box>
