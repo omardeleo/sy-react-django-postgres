@@ -18,7 +18,7 @@ function ThemeCard(props) {
           <h2 className={props.classes.cardHeader}>Update appearance</h2>
           <p>Modify the appearance of your app by using Material-UI's built-in themes, or 
       by creating a custom theme.</p>
-      <p>To switch from <b>Dark Mode</b> to <b>Light Mode</b>, open <code>`src/App.js`</code> and replace the following code:</p>
+      <p>To switch from <b>Dark Mode</b> to <b>Light Mode</b>, open <code>`frontend/src/App.js`</code> and replace the following code:</p>
           <pre><code className="language-js">
              { codeBlock_1 }
             </code></pre>
