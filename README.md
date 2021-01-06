@@ -1,4 +1,4 @@
-# The React Template &middot; [![Version Badge](https://img.shields.io/badge/version-1.0.0-brightgreen)](#)
+# The React + Django Template &middot; [![Version Badge](https://img.shields.io/badge/version-1.0.0-brightgreen)](#)
 
 An React starter project that works with [Docker](https://www.docker.com/), [Docker Compose](https://docs.docker.com/compose/),
 and [Shipyard](https://shipyard.build) out of the box.
@@ -7,6 +7,9 @@ and [Shipyard](https://shipyard.build) out of the box.
 
 - [React](https://github.com/facebook/react/) - JavaScript library for building user interfaces
 - [Material-UI](https://github.com/mui-org/material-ui) - React components for faster and simpler web development
+- [Django](https://github.com/django/django) - Python web framework (batteries included)
+- [Poetry](https://github.com/python-poetry/poetry) - modern dependency management for Python
+- [PostgreSQL](https://www.postgresql.org/) - database
 
 ## Dependencies
 
