@@ -62,13 +62,13 @@ function App() {
           className={classes.box}
           display="flex"
         >
-          <Tooltip title="Replace file at `/frontend/src/logo.png` with your logo file!">
+          <Tooltip title={<h3>Replace file at <code>`/frontend/src/logo.png`</code> with your logo file!</h3>}>
             <Box mt="20px" display="flex" flexDirection="column" alignItems="center">
               <img className={classes.img} src={logo} />
               <Typography variant="caption">Hover over logo to replace</Typography>
             </Box>
           </Tooltip>
-          <h1>React/Flask/Postgres Starter Project</h1>
+          <h1>React/Django/Postgres Starter Project</h1>
         </Box>
         <Grid container className={classes.container} spacing={2}>
           <Grid item xs={12} sm={12} md={6} lg={3}>
