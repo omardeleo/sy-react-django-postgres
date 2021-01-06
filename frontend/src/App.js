@@ -63,7 +63,7 @@ function App() {
           display="flex"
         >
           <img className={classes.img} src={logo} />
-          <h1>React/Flask/Postgres Starter Project</h1>
+          <h1>React/Django/Postgres Starter Project</h1>
         </Box>
         <Grid container className={classes.container} spacing={2}>
           <Grid item xs={12} sm={12} md={6} lg={3}>
