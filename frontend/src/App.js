@@ -4,7 +4,7 @@ import './App.css';
 import Prism from 'prismjs';
 import "prismjs/themes/prism-tomorrow.css";
 
-import { Grid, Box } from '@material-ui/core';
+import { Grid, Box, Typography, Tooltip } from '@material-ui/core';
 import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -62,8 +62,13 @@ function App() {
           className={classes.box}
           display="flex"
         >
-          <img className={classes.img} src={logo} />
-          <h1>React/Django/Postgres Starter Project</h1>
+          <Tooltip title="Replace file at `/frontend/src/logo.png` with your logo file!">
+            <Box mt="20px" display="flex" flexDirection="column" alignItems="center">
+              <img className={classes.img} src={logo} />
+              <Typography variant="caption">Hover over logo to replace</Typography>
+            </Box>
+          </Tooltip>
+          <h1>React/Flask/Postgres Starter Project</h1>
         </Box>
         <Grid container className={classes.container} spacing={2}>
           <Grid item xs={12} sm={12} md={6} lg={3}>
