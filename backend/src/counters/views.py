@@ -14,5 +14,9 @@ def index(request):
         counter.save()
     date = datetime.datetime.now()
     dateStr = date.strftime('%c')
-    response = f'Hi! I\'m a Django server.\n\nI\'m running on port 8080.\nI\'ve been pinged {counter.value} times.\nMost recent ping on {dateStr}.'
+    response = f"""Hi! I\'m a Django server.\n
+I\'m running on port 8080.
+I\'ve been pinged {counter.value} times.
+Most recent ping on {dateStr}."""
+
     return JsonResponse({"response": response})
