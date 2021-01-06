@@ -55,7 +55,7 @@ function ConnectCard(props) {
       </Box>
       <p>Below is the response from our server.</p>
       <ResponseBlock response={data.response} />
-      <p>Update <code>`backend/src/counters/views.py`</code>, save the file, then refresh this page to see a new message.</p>
+      <p>Update <code>`backend/src/counters/views.py`</code>, save the file, then refresh this page to <b>see a new message.</b></p>
       <p>Replace the code below:</p>
       <pre>
         <code className="language-js">
