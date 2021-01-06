@@ -51,14 +51,21 @@ function ConnectCard(props) {
       <h2 className={classes.cardHeader}>Connect to a server</h2>
       <p>This React frontend is connected to a Django backend.</p>
       <Box display="flex" flexDirection="column" alignItems="center">
-        <Box mb="5px"><img width="100px" src={djangoLogo} /></Box>
+        <Box><img width="100px" src={djangoLogo} /></Box>
       </Box>
       <p>Below is the response from our server.</p>
       <ResponseBlock response={data.response} />
-      <p>Change the code at `code.js`, save the file, then refresh this page to see a new message.</p>
+      <p>Update <code>`backend/src/counters/views.py`</code>, save the file, then refresh this page to see a new message.</p>
+      <p>Replace the code below:</p>
       <pre>
         <code className="language-js">
-          { `Code placeholder` }
+          { `18 |  return JsonResponse({"response": response})` }
+        </code>
+      </pre>
+      <p>with:</p>
+      <pre>
+        <code className="language-js">
+          { `18 |  return JsonResponse({"response": "I just updated the response message!"})` }
         </code>
       </pre>
     </Card>
