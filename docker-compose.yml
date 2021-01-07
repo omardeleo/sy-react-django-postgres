@@ -17,7 +17,7 @@ services:
   backend:
     labels:
       shipyard.before: 'poetry run python src/manage.py migrate'
-      shipyard.route: '/'
+      shipyard.route: '/api'
     build: 'backend'
     volumes:
       - './backend/src:/srv/src/'
