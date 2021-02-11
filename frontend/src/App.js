@@ -12,6 +12,7 @@ import ConnectCard from "./ConnectCard";
 import DeployCard from "./DeployCard";
 import MaterialCard from "./MaterialCard";
 import ThemeCard from "./ThemeCard";
+import UploadCard from "./UploadCard";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     height: "700px",
-    padding: "0 15px",
+    padding: "10px 25px",
   },
   cardHeader: {
     marginBottom: "30px"
@@ -44,6 +45,21 @@ const useStyles = makeStyles((theme) => ({
       textAlign: "center"
     },
   },
+  gridContainer: {
+    marginTop: 20,
+    width: '100%',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+  },
+  gridList: {
+    width: 500,
+    height: 450,
+  },
+  form: {
+    marginTop: '50'
+  }
 }));
 
 function App() {
@@ -65,23 +81,26 @@ function App() {
         >
           <Tooltip title={<h3>Replace file at <code>`/frontend/src/logo.png`</code> with your logo file!</h3>}>
             <Box mt="20px" display="flex" flexDirection="column" alignItems="center">
-              <img className={classes.img} src={logo} />
+              <img className={classes.img} src={logo} alt="Shipyard logo"/>
               <Typography variant="caption">Hover over logo to replace</Typography>
             </Box>
           </Tooltip>
           <h1>React/Django/Postgres Starter Project</h1>
         </Box>
         <Grid container className={classes.container} spacing={2}>
-          <Grid item xs={12} sm={12} md={6} lg={3}>
+          <Grid item xs={12} sm={12} md={6} lg={4}>
             <ThemeCard classes={classes} />
           </Grid>
-          <Grid item xs={12} sm={12} md={6} lg={3}>
+          <Grid item xs={12} sm={12} md={6} lg={4}>
             <MaterialCard classes={classes} />
           </Grid>
-          <Grid item xs={12} sm={12} md={6} lg={3}>
+          <Grid item xs={12} sm={12} md={6} lg={4}>
             <ConnectCard classes={classes} />
           </Grid>
-          <Grid item xs={12} sm={12} md={6} lg={3}>
+          <Grid item xs={12} sm={12} md={6} lg={4}>
+            <UploadCard classes={classes}/>
+          </Grid>
+          <Grid item xs={12} sm={12} md={6} lg={4}>
             <DeployCard classes={classes}/>
           </Grid>
         </Grid>
