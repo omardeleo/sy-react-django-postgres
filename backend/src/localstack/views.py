@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.decorators.csrf import ensure_csrf_cookie
 import datetime
 
 BUCKET = 'test-bucket'
@@ -28,11 +29,12 @@ def create(request):
     return redirect('index')
 
 
+@ensure_csrf_cookie
 def upload(request):
-    if request.method == 'POST' and request.files['file']:
-        file = request.files['file']
+    if request.method == 'POST' and request.FILES['file']:
+        file = request.FILES['file']
         if file:
-            filename = secure_filename(file.filename)
+            filename = file.name
             s3_client().put_object(Bucket=BUCKET,
                                    Key=filename,
                                    Body=file)
