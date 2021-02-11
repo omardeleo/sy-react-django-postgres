@@ -23,6 +23,8 @@ services:
       - './backend/src:/srv/src/'
       - './backend/poetry.lock:/srv/poetry.lock/'
       - './backend/pyproject.toml:/srv/pyproject.toml/'
+    environment:
+      LOCALSTACK_HOST: 'localstack'
     ports:
       - '8080:8080'
     depends_on:
@@ -41,5 +43,16 @@ services:
     ports:
       - '5432'
 
+  localstack:
+    image: 'localstack/localstack'
+    environment:
+      - DATA_DIR=/tmp/localstack/data
+    volumes:
+      - 'localstack:/tmp/localstack'
+    ports:
+      - '4566:4566'
+      - '4571:4571'
+
 volumes:
   postgres:
+  localstack:
