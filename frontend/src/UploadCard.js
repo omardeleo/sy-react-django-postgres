@@ -7,6 +7,7 @@ function UploadCard(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+  const [token, setToken] = useState(null);
 
   const fetchData = () => {
     fetch('api/v1/files/')
@@ -14,9 +15,7 @@ function UploadCard(props) {
       .then(
         (result) => {
           setIsLoaded(true);
-          console.log(result)
           const bucket = result['Name'];
-          console.log(bucket)
           const filenames = result['Contents'] ?
             result['Contents']
               .map(file => `${bucket}/${file['Key']}`)
@@ -31,8 +30,7 @@ function UploadCard(props) {
       )
   }
 
-  useEffect(() => fetchData(), []);
-    function getCookie(name) {
+  const getCookie = (name) => {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
         const cookies = document.cookie.split(';');
@@ -40,21 +38,34 @@ function UploadCard(props) {
             const cookie = cookies[i].trim();
             // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
             }
         }
     }
     return cookieValue;
-}
-const csrftoken = getCookie('csrftoken');
+  }
 
-console.log('token', csrftoken)
-const DjangoCSRFToken = () => {
+  useEffect(() => {
+    fetchData();
+    const csrftoken = getCookie('csrftoken');
+    setToken(csrftoken);
+  }, []);
+
+  console.log('token from state', token);
+
+  // const DjangoCSRFToken = () => {
+  //   return (
+  //     <input type="hidden" name="csrfmiddlewaretoken" value={csrftoken} />
+  //   );
+  // };
+  const DjangoCSRFToken = () => {
     return (
-        <input type="hidden" name="csrfmiddlewaretoken" value={csrftoken} />
+      token ?
+      <input type="hidden" name="csrfmiddlewaretoken" value={token} /> :
+      ""
     );
-};
+  };
 
   const submitFile = async (e) => {
     e.preventDefault();
@@ -69,18 +80,16 @@ const DjangoCSRFToken = () => {
         method: 'POST',
         body: formData,
         headers: {
-          'X-CSRFToken': csrftoken
+          'X-CSRFToken': token
         }
       })
-      const thing = await response.json()
-      console.log(thing)
+      await response.json();
       inputEl.current.value = "";
       fetchData();
     } catch (error) {
       alert(error);
     }
   };
-
 
   return (
     <Card className={props.classes.card}>
