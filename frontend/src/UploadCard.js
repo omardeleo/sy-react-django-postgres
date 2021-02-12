@@ -30,35 +30,16 @@ function UploadCard(props) {
       )
   }
 
-  const getCookie = (name) => {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-              break;
-            }
-        }
-    }
-    return cookieValue;
-  }
-
   useEffect(() => {
     fetchData();
-    const csrftoken = getCookie('csrftoken');
-    setToken(csrftoken);
+    async function getCookie() {
+      const response = await fetch('/api/v1/files/csrf/');
+      const token = await response.json();
+      setToken(token.csrfToken);
+    }
+    getCookie();
   }, []);
 
-  console.log('token from state', token);
-
-  // const DjangoCSRFToken = () => {
-  //   return (
-  //     <input type="hidden" name="csrfmiddlewaretoken" value={csrftoken} />
-  //   );
-  // };
   const DjangoCSRFToken = () => {
     return (
       token ?
@@ -90,7 +71,7 @@ function UploadCard(props) {
       alert(error);
     }
   };
-
+  console.log('token from state', token);
   return (
     <Card className={props.classes.card}>
       <h2 className={props.classes.cardHeader}>Store files in S3, locally</h2>
