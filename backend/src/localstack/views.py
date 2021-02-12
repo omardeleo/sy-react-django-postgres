@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.middleware.csrf import get_token
 import datetime
 
 BUCKET = 'test-bucket'
@@ -40,3 +41,7 @@ def upload(request):
                                    Body=file)
 
     return JsonResponse({"message": filename })
+
+
+def csrf(request):
+    return JsonResponse({'csrfToken': get_token(request)})
