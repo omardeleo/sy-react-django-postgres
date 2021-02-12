@@ -19,4 +19,4 @@ I\'m running on port 8080.
 I\'ve been pinged {counter.value} times.
 Most recent ping on {dateStr}."""
 
-    return JsonResponse({"response": response})
+    return JsonResponse({'response': response})

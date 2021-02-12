@@ -9,7 +9,7 @@ from django.http import JsonResponse
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.middleware.csrf import get_token
-import datetime
+import time
 
 BUCKET = 'test-bucket'
 
@@ -35,12 +35,14 @@ def upload(request):
     if request.method == 'POST' and request.FILES['file']:
         file = request.FILES['file']
         if file:
-            filename = file.name
+            ext = file.name.split('.')[-1]
+            timestr = time.strftime('%Y%m%d%H%M%S')
+            filename = f'upload-{timestr}.{ext}'
             s3_client().put_object(Bucket=BUCKET,
                                    Key=filename,
                                    Body=file)
 
-    return JsonResponse({"message": filename })
+    return JsonResponse({'message': filename })
 
 
 def csrf(request):
