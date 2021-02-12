@@ -20,7 +20,7 @@ function UploadCard(props) {
             result['Contents']
               .map(file => `${bucket}/${file['Key']}`)
               .reverse() :
-              [];
+            [];
           setData(filenames);
         },
         (error) => {
