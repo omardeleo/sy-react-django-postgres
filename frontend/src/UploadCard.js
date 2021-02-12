@@ -71,7 +71,7 @@ function UploadCard(props) {
       alert(error);
     }
   };
-  console.log('token from state', token);
+
   return (
     <Card className={props.classes.card}>
       <h2 className={props.classes.cardHeader}>Store files in S3, locally</h2>
