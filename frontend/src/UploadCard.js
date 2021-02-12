@@ -76,15 +76,15 @@ function UploadCard(props) {
     <Card className={props.classes.card}>
       <h2 className={props.classes.cardHeader}>Store files in S3, locally</h2>
       <p>Click below to select and upload an image from your computer.</p>
-      <p>The image will be stored in a local S3 bucket, powered by <Link
+      <p>The image will be <b>stored in a local S3 bucket</b>, powered by <Link
           color="secondary"
           target="_blank"
           rel="noopener"
           href="https://github.com/localstack/localstack"
         >
           LocalStack
-        </Link> - a fully functional local AWS cloud stack.</p>
-        <Box display="flex" flexDirection="column" alignItems="center"> 
+        </Link> - a fully functional local AWS cloud stack, and displayed below.</p>
+        <Box display="flex" flexDirection="column" alignItems="center" mt={5} mb={5}>
           <form onSubmit={e => submitFile(e)}>
             <DjangoCSRFToken />
             <Box>
@@ -105,9 +105,13 @@ function UploadCard(props) {
 
       { data ?
       <div className={props.classes.gridContainer}>
-        <GridList cellHeight={100} className={props.classes.gridList} cols={1}>
+        <GridList
+          cellHeight={100}
+          className={props.classes.gridList}
+          cols={3}
+        >
           {data.map((src) => (
-            <GridListTile key={src} cols={1} mb={5}>
+            <GridListTile key={src} cols={1}>
               <img src={src} alt="Uploaded to LocalStack" />
             </GridListTile>
           ))}

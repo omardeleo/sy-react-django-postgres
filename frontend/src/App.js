@@ -47,15 +47,12 @@ const useStyles = makeStyles((theme) => ({
   },
   gridContainer: {
     marginTop: 20,
-    width: '100%',
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
+    overflow: 'auto',
   },
   gridList: {
     width: 500,
-    height: 450,
   },
   form: {
     marginTop: '50'
