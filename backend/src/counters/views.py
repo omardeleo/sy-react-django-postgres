@@ -5,6 +5,12 @@ import datetime
 
 from .models import Counter
 
+def reset(request):
+    counter = Counter.objects.last()
+    counter.reset()
+
+    return JsonResponse({'response': counter.value})
+
 def index(request):
     counter = Counter.objects.last()
     if counter:
@@ -14,9 +20,7 @@ def index(request):
         counter.save()
     date = datetime.datetime.now()
     dateStr = date.strftime('%c')
-    response = f"""Hi! I\'m a Django server.\n
-I\'m running on port 8080.
-I\'ve been pinged {counter.value} times.
-Most recent ping on {dateStr}."""
+    response = f"""Django server running on port 8080.
+Pinged {counter.value} {"time" if counter.value == 1 else "times"}, most recently on {dateStr}."""
 
     return JsonResponse({'response': response})

@@ -12,3 +12,7 @@ class Counter(models.Model):
         if self.value > self.RESET_THRESHOLD:
             self.value = 0
         self.save()
+
+    def reset(self):
+        self.value = 0
+        self.save()
