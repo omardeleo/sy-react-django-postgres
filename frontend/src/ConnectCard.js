@@ -13,8 +13,8 @@ function ResponseBlock(props) {
     Prism.highlightAll();
   }, []);
   return (
-    <pre><code className="language-html">
-      { `${props.response}` }
+    <pre><code className={props.language}>
+      { `${props.code}` }
     </code></pre>
   )
 }
@@ -40,7 +40,17 @@ function ConnectCard(props) {
       )
   }
 
+  const resetCounter = () => {
+    fetch("/api/v1/reset/")
+      .then(res => res.json())
+      .then(data => fetchData())
+  }
+
   useEffect(() => fetchData(), []);
+
+  const codeBlock =`16 |    def reset(self):
+17 |       self.value = 0
+18 |       self.save()`
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -48,26 +58,39 @@ function ConnectCard(props) {
     return <div>Loading...</div>;
   } else return (
     <Card className={classes.card}>
-      <h2 className={classes.cardHeader}>Connect to a server</h2>
-      <p>This React frontend is connected to a Django backend.</p>
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <Box><img width="100px" src={djangoLogo} alt="Django Logo"/></Box>
+      <h2>Connect to a server</h2>
+      <Box display="flex" flexDirection="row" alignItems="center" mt={-3} mb={-1}>
+        <Box mr={1}>
+          <h3>Powered by</h3>
+        </Box>
+        <img width="75px" height="100%" src={djangoLogo} alt="Django Logo"/>
       </Box>
-      <p>Below is the response from the server:</p>
-      <ResponseBlock response={data.response} />
-      <p>Update <code>`backend/src/routes/index.js`</code>, save the file, then refresh this page to <b>see a new message.</b></p>
+      <p>This React frontend is connected to a Django server. Below is the response message we receive when we ping the server:</p>
+      <p className={classes.response}>
+        {data.response}
+      </p>
+      <p>The server ping count is stored to the database. Click below to <b>reset the counter:</b></p>
+      <Box display="flex" justifyContent="center">
+        <button onClick={resetCounter}>Reset Ping Counter</button>
+      </Box>
+      <br></br>
+      <p>Update <code>`backend/src/counters/views.py`</code>, save the file, then refresh this page to <b>see a new response message.</b></p>
       <p>Replace the code below:</p>
-      <pre>
-        <code className="language-js">
-          { `22 |  return JsonResponse({"response": response})` }
-        </code>
-      </pre>
+      <ResponseBlock
+        language="language-js"
+        code='26 |  return JsonResponse({"response": response})'
+      />
       <p>with:</p>
-      <pre>
-        <code className="language-js">
-          { `22 |  return JsonResponse({"response": response})` }
-        </code>
-      </pre>
+      <ResponseBlock
+        language="language-js"
+        code='26 |  return JsonResponse({"response": "I just updated the response message!"})'
+      />
+      <br></br>
+      <p>The function that <b>resets the ping counter</b> is located in <code>`backend/src/counters/models.py`:</code></p>
+      <ResponseBlock
+        language="language-js"
+        code={codeBlock}
+      />
     </Card>
   );
 }

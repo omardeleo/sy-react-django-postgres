@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Box, Card, GridList, GridListTile, Link } from '@material-ui/core';
 
+import localStackLogo from './localStackLogo.png';
+
 function UploadCard(props) {
   const inputEl = useRef(null);
   const [file, setFile] = useState(null);
@@ -74,7 +76,13 @@ function UploadCard(props) {
 
   return (
     <Card className={props.classes.card}>
-      <h2 className={props.classes.cardHeader}>Store files in S3, locally</h2>
+      <h2>Store files in S3, locally</h2>
+      <Box display="flex" flexDirection="row" alignItems="center" mt={-3} mb={-1}>
+        <Box mr={1}>
+          <h3>Powered by</h3>
+        </Box>
+        <img width="75px" height="100%" src={localStackLogo} alt="Express Logo"/>
+      </Box>
       <p>Click below to select and upload an image from your computer.</p>
       <p>The image will be <b>stored in a local S3 bucket</b>, powered by <Link
           color="secondary"
@@ -82,7 +90,7 @@ function UploadCard(props) {
           rel="noopener"
           href="https://github.com/localstack/localstack"
         >
-          LocalStack
+          <b>LocalStack</b>
         </Link> - a fully functional local AWS cloud stack, and displayed below.</p>
         <Box display="flex" flexDirection="column" alignItems="center" mt={5} mb={5}>
           <form onSubmit={e => submitFile(e)}>
@@ -97,10 +105,10 @@ function UploadCard(props) {
                 }
               />
             </Box>
-          <Box>
-          <button type="submit">Upload</button>
-          </Box>
-        </form>
+            <Box>
+              <button type="submit">Upload</button>
+            </Box>
+          </form>
         </Box>
 
       { data ?

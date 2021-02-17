@@ -1,10 +1,9 @@
 import logo from './logo.png';
-
 import './App.css';
 import Prism from 'prismjs';
 import "prismjs/themes/prism-tomorrow.css";
 
-import { Grid, Box, Typography, Tooltip } from '@material-ui/core';
+import { Grid, Box, Link, Typography } from '@material-ui/core';
 import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -26,12 +25,13 @@ const useStyles = makeStyles((theme) => ({
   card: {
     height: "700px",
     padding: "10px 25px",
+    overflow: "auto",
   },
   cardHeader: {
     marginBottom: "30px"
   },
   img: {
-    width: "200px",
+    width: "210px",
     background: "white",
     padding: "0 10px",
     height: "100%",
@@ -56,7 +56,18 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     marginTop: '50'
-  }
+  },
+  response: {
+    fontFamily: "monospace",
+    color: "limeGreen",
+    fontSize: "1.3em"
+  },
+  list: {
+    fontSize: "1.1em",
+    "& li": {
+      marginBottom: "8px"
+    }
+  },
 }));
 
 function App() {
@@ -65,6 +76,9 @@ function App() {
   const theme = createMuiTheme({
     palette: {
       type: 'dark',
+      secondary: {
+        main: '#35baf6',
+      },
     }
   });
 
@@ -76,13 +90,50 @@ function App() {
           className={classes.box}
           display="flex"
         >
-          <Tooltip title={<h3>Replace file at <code>`/frontend/src/logo.png`</code> with your logo file!</h3>}>
-            <Box mt="20px" display="flex" flexDirection="column" alignItems="center">
-              <img className={classes.img} src={logo} alt="Shipyard logo"/>
-              <Typography variant="caption">Hover over logo to replace</Typography>
-            </Box>
-          </Tooltip>
-          <h1>React/Django/Postgres Starter Project</h1>
+          <Box mt="20px" display="flex" flexDirection="column" alignItems="center">
+            <img className={classes.img} src={logo} alt="Shipyard logo"/>
+            <Typography variant="caption">Replace this with your logo:</Typography>
+            <Typography variant="caption"><code>'/frontend/src/logo.png'</code> </Typography>
+          </Box>
+          <Box mt={-2}>
+            <h1>
+              <Link
+                color="secondary"
+                target="_blank"
+                rel="noopener"
+                href="https://github.com/facebook/react"
+              >
+                React
+            </Link>
+            -
+            <Link
+                color="secondary"
+                target="_blank"
+                rel="noopener"
+                href="https://github.com/django/django"
+              >
+                Django
+            </Link>
+            -
+            <Link
+                color="secondary"
+                target="_blank"
+                rel="noopener"
+                href="https://github.com/postgres/postgres"
+              >
+                Postgres
+            </Link>
+            -
+            <Link
+                color="secondary"
+                target="_blank"
+                rel="noopener"
+                href="https://github.com/localstack/localstack"
+              >
+                LocalStack
+            </Link>
+             {" "}Starter Project</h1>
+          </Box>
         </Box>
         <Grid container className={classes.container} spacing={2}>
           <Grid item xs={12} sm={12} md={6} lg={4}>

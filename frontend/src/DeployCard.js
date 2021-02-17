@@ -4,23 +4,51 @@ import logo from './logo.png';
 function DeployCard(props) {
   return (
     <Card className={props.classes.card}>
-      <h2 className={props.classes.cardHeader}>Deploy your app to the cloud</h2>
-      <p>Easily deploy your app using Shipyard.</p>
-      <Box display="flex" justifyContent="center" pt="20px" mb="40px">
-        <Link href="https://shipyard.build" target="_blank" rel="noopener">
-          <img width="150px" src={logo} alt="Shipyard logo"/>
-        </Link>
+      <h2>Deploy your app to the cloud</h2>
+      <Box display="flex" flexDirection="row" alignItems="center" mt={-3} mb={-1}>
+        <Box mr={1}>
+          <h3>Powered by</h3>
+        </Box>
+        <img width="120px" height="100%" src={logo} alt="Shipyard Logo"/>
       </Box>
-      <p>Alternatively, read this guide on how to deploy a containerized web app:{" "}
+      <p>Use{" "}
         <Link
           color="secondary"
           target="_blank"
           rel="noopener"
-          href="https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app"
+          href="https://shipyard.build"
         >
-          https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app
+          <b>Shipyard</b>
         </Link>
-      </p>
+        {" "}to deploy your app to the cloud, following these simple steps:</p>
+        <ul className={props.classes.list}>
+          <li>Go to{" "}
+            <Link
+              color="secondary"
+              target="_blank"
+              rel="noopener"
+              href="https://shipyard.build"
+            >
+              <b>https://shipyard.build</b>
+          </Link>.
+          </li>
+          <li>
+            <b>Sign in</b> using your{" "}
+            <Link
+                color="secondary"
+                target="_blank"
+                rel="noopener"
+                href="https://github.com/"
+              >
+                <b>GitHub</b>
+            </Link>
+            {" "}credentials.
+          </li>
+          <li>Click <b>Add Repository</b> to select the repo for this starter project.</li>
+          <li><b>Select the branch</b> you'd like to deploy.</li>
+          <li>Click <b>Deploy</b> to deploy the app!</li>
+        </ul>
+        <p>Once the app is up and running, you'll be able to see it by clicking the <b>View Live Environment</b> icon.</p>
     </Card>
   );
 }

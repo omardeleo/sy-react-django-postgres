@@ -19,7 +19,7 @@ function MaterialCard(props) {
         <pre><code className="language-js">
           { codeBlock_4 }
         </code></pre>
-      <p>Read the Material-UI docs to learn more about components: <Link color="secondary" href="https://material-ui.com/" target="_blank" rel="noopener">https://material-ui.com/.</Link></p>
+      <p>Read the Material-UI docs to learn more about components: <Link color="secondary" href="https://material-ui.com/" target="_blank" rel="noopener"><b>https://material-ui.com/.</b></Link></p>
     </Card>
   );
 }

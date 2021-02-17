@@ -26,7 +26,7 @@ function ThemeCard(props) {
             <pre><code className="language-js">
              { codeBlock_2 }
             </code></pre>
-            <p><Link color="secondary" href="https://material-ui.com/customization/theming/" target="_blank">Click here</Link> to learn more about Material-UI themes.</p>
+            <p><Link color="secondary" href="https://material-ui.com/customization/theming/" target="_blank"><b>Click here</b></Link> to learn more about Material-UI themes.</p>
         </Card>
   );
 }
