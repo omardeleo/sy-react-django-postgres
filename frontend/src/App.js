@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     display: 'flex',
     flexWrap: 'wrap',
-    overflow: 'auto',
   },
   gridList: {
     width: 500,
