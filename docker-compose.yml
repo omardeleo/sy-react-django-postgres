@@ -8,6 +8,8 @@ services:
     environment:
       CI: 'true'
       DANGEROUSLY_DISABLE_HOST_CHECK: 'true'
+    env_file:
+      - frontend/frontend.env
     volumes:
       - './frontend/src:/app/src'
       - './frontend/public:/app/public'

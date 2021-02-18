@@ -2,8 +2,9 @@ import { Card, Box, Link } from '@material-ui/core';
 import logo from './logo.png';
 
 function DeployCard(props) {
+  const {classes} = props;
   return (
-    <Card className={props.classes.card}>
+    <Card className={classes.card}>
       <h2>Deploy your app to the cloud</h2>
       <Box display="flex" flexDirection="row" alignItems="center" mt={-3} mb={-1}>
         <Box mr={1}>
@@ -13,7 +14,7 @@ function DeployCard(props) {
       </Box>
       <p>Use{" "}
         <Link
-          color="secondary"
+          className={classes.link}
           target="_blank"
           rel="noopener"
           href="https://shipyard.build"
@@ -21,10 +22,10 @@ function DeployCard(props) {
           <b>Shipyard</b>
         </Link>
         {" "}to deploy your app to the cloud, following these simple steps:</p>
-        <ul className={props.classes.list}>
+        <ul className={classes.list}>
           <li>Go to{" "}
             <Link
-              color="secondary"
+              className={classes.link}
               target="_blank"
               rel="noopener"
               href="https://shipyard.build"
@@ -35,7 +36,7 @@ function DeployCard(props) {
           <li>
             <b>Sign in</b> using your{" "}
             <Link
-                color="secondary"
+                className={classes.link}
                 target="_blank"
                 rel="noopener"
                 href="https://github.com/"

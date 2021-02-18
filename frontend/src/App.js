@@ -49,8 +49,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     display: 'flex',
     flexWrap: 'wrap',
-  },
-  gridList: {
     width: 500,
   },
   form: {
@@ -59,7 +57,9 @@ const useStyles = makeStyles((theme) => ({
   response: {
     fontFamily: "monospace",
     color: "limeGreen",
-    fontSize: "1.3em"
+    fontSize: "1.3em",
+    background: 'black',
+    padding: '0px 5px'
   },
   list: {
     fontSize: "1.1em",
@@ -67,6 +67,22 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "8px"
     }
   },
+  contained: {
+    color: 'white',
+    fontWeight: '600',
+    background: '#787878',
+    "&:hover": {
+      background: '#888'
+    },
+    borderRadius: 5,
+    margin: '15px 0px'
+  },
+  pre: {
+    whiteSpace: 'pre-wrap',
+  },
+  link: {
+    color: '#35baf6',
+  }
 }));
 
 function App() {
@@ -75,9 +91,6 @@ function App() {
   const theme = createMuiTheme({
     palette: {
       type: 'dark',
-      secondary: {
-        main: '#35baf6',
-      },
     }
   });
 
@@ -97,40 +110,40 @@ function App() {
           <Box mt={-2}>
             <h1>
               <Link
-                color="secondary"
+                className={classes.link}
                 target="_blank"
                 rel="noopener"
                 href="https://github.com/facebook/react"
               >
                 React
-            </Link>
-            -
-            <Link
-                color="secondary"
+              </Link>
+              -
+              <Link
+                className={classes.link}
                 target="_blank"
                 rel="noopener"
                 href="https://github.com/django/django"
               >
                 Django
-            </Link>
-            -
-            <Link
-                color="secondary"
+              </Link>
+              -
+              <Link
+                className={classes.link}
                 target="_blank"
                 rel="noopener"
                 href="https://github.com/postgres/postgres"
               >
                 Postgres
-            </Link>
-            -
-            <Link
-                color="secondary"
+              </Link>
+              -
+              <Link
+                className={classes.link}
                 target="_blank"
                 rel="noopener"
                 href="https://github.com/localstack/localstack"
               >
                 LocalStack
-            </Link>
+              </Link>
              {" "}Starter Project</h1>
           </Box>
         </Box>
