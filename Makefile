@@ -11,7 +11,11 @@ build:
 run:
 	docker-compose up
 
-shell:
+frontend-shell:
+	docker-compose run frontend \
+	  sh
+
+backend-shell:
 	docker-compose run backend \
 	  sh
 
