@@ -3,8 +3,8 @@ import datetime
 
 from .models import Counter
 
-RESPONSE_TEMPLATE = "Django server running on port 8080. Pinged {count} {times}, \
-most recently on {date}."
+RESPONSE_TEMPLATE = 'Django server running on port 8080. Pinged {count} {times}, \
+most recently on {date}.'
 
 
 def reset(request):
@@ -22,11 +22,11 @@ def index(request):
         counter = Counter()
         counter.save()
     date = datetime.datetime.now()
-    dateStr = date.strftime('%c')
-    times = "time" if counter.value == 1 else "times"
+    date_str = date.strftime('%c')
+    times = 'time' if counter.value == 1 else 'times'
     response = RESPONSE_TEMPLATE.format(
         count=counter.value,
         times=times,
-        date=dateStr)
+        date=date_str)
 
     return JsonResponse({'response': response})
