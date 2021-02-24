@@ -1,4 +1,4 @@
-<img src="./public/images/logo.png" alt="Shipyard logo" width="250"/>
+<img src="./src/assets/images/logo.png" alt="Shipyard logo" width="250"/>
 
 # Getting Started with Create React App
 
