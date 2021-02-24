@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Box, Button, Card, Link } from '@material-ui/core';
 import Prism from 'prismjs';
 
+import djangoLogo from '../assets/images/django.png';
+
 function ResponseBlock(props) {
   useEffect(() => {
     Prism.highlightAll();
@@ -18,7 +20,6 @@ function ConnectCard(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState([]);
   const { classes } = props;
-  const djangoLogo = `${process.env.PUBLIC_URL}/images/django.png`;
 
   const fetchData = () => {
     fetch('/api/v1/')

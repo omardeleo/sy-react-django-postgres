@@ -17,3 +17,8 @@ code {
 p {
   font-size: 1.1em;
 }
+
+pre[class*='language-'] > code {
+  position: relative !important;
+  display: block !important;
+}

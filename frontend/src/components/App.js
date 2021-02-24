@@ -8,13 +8,13 @@ import {
 } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import './App.css';
-
 import ConnectCard from './ConnectCard';
 import DeployCard from './DeployCard';
 import MaterialCard from './MaterialCard';
 import ThemeCard from './ThemeCard';
 import UploadCard from './UploadCard';
+
+import logo from '../assets/images/logo.png';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -90,7 +90,6 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const logo = `${process.env.PUBLIC_URL}/images/logo.png`;
 
   const theme = createMuiTheme({
     palette: {
@@ -114,7 +113,7 @@ function App() {
               Replace this with your logo:
             </Typography>
             <Typography variant="caption">
-              <code>'/frontend/public/images/logo.png'</code>{' '}
+              <code>'/frontend/src/assets/images/logo.png'</code>{' '}
             </Typography>
           </Box>
           <Box mt={-2}>
