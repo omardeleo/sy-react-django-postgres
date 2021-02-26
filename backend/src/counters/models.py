@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Counter(models.Model):
     value = models.IntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -11,4 +12,8 @@ class Counter(models.Model):
         self.value += amount
         if self.value > self.RESET_THRESHOLD:
             self.value = 0
+        self.save()
+
+    def reset(self):
+        self.value = 0
         self.save()

@@ -10,6 +10,7 @@ and [Shipyard](https://shipyard.build) out of the box.
 - [Django](https://github.com/django/django) - Python web framework (batteries included)
 - [Poetry](https://github.com/python-poetry/poetry) - modern dependency management for Python
 - [PostgreSQL](https://www.postgresql.org/) - database
+- [LocalStack](https://github.com/localstack/localstack) - fully functional local AWS cloud stack
 
 ## Dependencies
 
@@ -20,4 +21,5 @@ and [Shipyard](https://shipyard.build) out of the box.
 
 - Run `make develop` at the root of this project.
 - Visit the app at http://localhost:3000.
+- Visit http://localhost:8080/api/v1/files to list objects in LocalStack s3 bucket.
 - Make your code changes! The app will reload whenever you save.
